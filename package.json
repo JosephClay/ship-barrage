@@ -75,7 +75,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JosephClay/battleship"
+    "url": "https://github.com/JosephClay/ship-barrage"
   },
   "keywords": [
     "react",

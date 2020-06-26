@@ -6,7 +6,7 @@ export default function GitHub() {
   return (
     <a
       css={ github }
-      href="https://github.com/JosephClay/battleship"
+      href="https://github.com/JosephClay/ship-barrage"
       aria-label="View source on GitHub"
     >
       <OctoCat />
