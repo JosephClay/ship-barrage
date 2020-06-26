@@ -1,0 +1,1 @@
+export default 'Notification' in global;

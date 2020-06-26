@@ -1,0 +1,1 @@
+export default (x, y) => Array.isArray(x) ? `${x[0]}${x[1]}` : `${x}${y}`;

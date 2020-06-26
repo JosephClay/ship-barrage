@@ -1,0 +1,1 @@
+export default (vector0, vector1, time) => vector0 * (1 - time) + vector1 * time;

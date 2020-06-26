@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>
+      Ship Barrage
+    </title>
+    
+    <meta name="author" content="Joseph Clay">
+    <meta name="description" content="War vessels in browser">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    
+    <link rel="preconnect" href="https://www.googletagmanager.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+    
+    <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/favicons/114.png">
+
+    <!-- styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&display=swap" rel="stylesheet">
+    <style>
+      .browser-notice {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        color: #1a1a1a;
+        text-align: center;
+        font-family: sans-serif;
+        background: #f1f1f1;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if IE]>
+    <p class="browser-notice">
+      You are using an <strong>outdated</strong> browser.
+      <br>
+      Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+    <![endif]-->
+    
+    <noscript>
+      <p class="browser-notice">
+        JavaScript must be enabled to play
+      </p>
+    </noscript>
+
+    <!-- game -->
+    <main class="main" id="mount"></main>
+    <script src="/public/app.js"></script>
+
+    <!-- google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169192638-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-169192638-1');
+    </script>
+  </body>
+</html>

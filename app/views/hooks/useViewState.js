@@ -1,0 +1,33 @@
+import useBranch from 'baobab-react/useBranch';
+import {
+  STATE_HOME,
+  STATE_NAMING,
+  STATE_SHARING,
+  STATE_JOINING,
+} from 'settings';
+
+export default function useViewState() {
+  const {
+    loading,
+    state,
+    initialized,
+  } = useBranch({ 
+    loading: ['loading'],
+    state: ['state'],
+    initialized: ['initialized'],
+  });
+  
+  const isHome = state === STATE_HOME || state === STATE_NAMING || state === STATE_SHARING || state === STATE_JOINING;
+
+  return {
+    state,
+    loading,
+    initialized,
+    isHome,
+    isGame: !isHome,
+    isMainMenu: state === STATE_HOME,
+    isNaming: state === STATE_NAMING,
+    isSharing: state === STATE_SHARING,
+    isJoining: state === STATE_JOINING,
+  };
+};

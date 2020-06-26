@@ -1,0 +1,1 @@
+export default num => typeof num === 'number' && Number.isFinite(num);

@@ -1,0 +1,1 @@
+export default (value, length = 1) => Array(length).fill(value);

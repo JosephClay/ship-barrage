@@ -1,0 +1,1 @@
+export default key => key.split('').map(value => +value);

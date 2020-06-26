@@ -1,0 +1,54 @@
+{
+  "music": {
+    "src": ["/assets/audio/background.mp3"],
+    "preload": true,
+    "loop": true,
+    "html5": true
+  },
+  "effects": {
+    "src": ["/assets/audio/soundeffects.mp3"],
+    "preload": true,
+    "loop": false,
+    "html5": false,
+    "sprite": {
+      "explosion": [
+        0,
+        1372.005
+      ],
+      "chime": [
+        2479.666,
+        1441.205
+      ],
+      "ping": [
+        6156.03,
+        126.405
+      ],
+      "click": [
+        7288.141,
+        46.134
+      ],
+      "splash": [
+        8342.749,
+        1498.871
+      ],
+      "transition": [
+        10932.673,
+        1475.805
+      ],
+      "whoosh": [
+        13419.259,
+        893.621
+      ]
+    }
+  },
+  "volumes": {
+    "music": 0.15,
+    "explosion": 0.65,
+    "chime": 0.1,
+    "ping": 0.05,
+    "click": 0.1,
+    "splash": 0.65,
+    "transition": 0.25,
+    "whoosh": 0.25
+  }
+}
