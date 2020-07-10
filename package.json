@@ -39,7 +39,6 @@
     "mongoose": "^5.9.18",
     "nanoid": "^3.1.4",
     "perlin-contours": "file:./local_modules/perlin-contours",
-    "preact": "^10.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "serve-favicon": "^2.5.0",

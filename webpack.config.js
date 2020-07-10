@@ -3,8 +3,9 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const analyze = process.argv.includes('--analyze');
-const isDev = !analyze && process.env.NODE_ENV === 'development';
-const isProd = analyze || process.env.NODE_ENV === 'production';
+const hasProdFlag = process.argv.includes('--production');
+const isDev = !hasProdFlag && !analyze && process.env.NODE_ENV === 'development';
+const isProd = analyze || hasProdFlag || process.env.NODE_ENV === 'production';
 const mode = isDev ? 'development' : 'production';
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -68,12 +69,6 @@ module.exports = {
       '.js',
       '.jsx',
     ],
-    ...(isProd && {
-      alias: {
-        react: 'preact/compat',
-        'react-dom': 'preact/compat',
-      }
-    }),
   },
   optimization: {
     usedExports: true,
