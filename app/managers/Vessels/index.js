@@ -52,6 +52,7 @@ const Vessels = function({
   let activeType;
 
   const onMove = e => {
+    console.log('onMove');
     const [clientX, clientY] = startingCoords;
     const { clientX: moveX, clientY: moveY } = e.touches ? e.touches[0] : e;
 
@@ -91,10 +92,15 @@ const Vessels = function({
   };
   
   const onEnd = () => {
+    console.log('onEnd');
+
     // remove listeners
     global.removeEventListener('pointermove', onMove);
+    global.removeEventListener('touchmove', onEnd);
     global.removeEventListener('pointerleave', onEnd);
+    global.removeEventListener('touchcancel', onEnd);
     global.removeEventListener('pointerup', onEnd);
+    global.removeEventListener('touchend', onEnd);
 
     // save local definitions
     let coords = [...drag.get('coords')];
@@ -176,6 +182,8 @@ const Vessels = function({
       drag.set('coords', []);
     },
     dropStart({ cell, e, type }) {
+      console.log('start');
+
       const { clientX, clientY } = e.touches ? e.touches[0] : e;
       
       startingCoords = [clientX, clientY];
@@ -184,10 +192,15 @@ const Vessels = function({
       // drag.set('type', type);
       drag.set('coords', []);
       drag.set('segment', cell);
-
+      
       global.addEventListener('pointermove', onMove);
+      global.addEventListener('touchmove', onMove);
+
       global.addEventListener('pointerleave', onEnd);
+      global.addEventListener('touchcancel', onEnd);
+
       global.addEventListener('pointerup', onEnd);
+      global.addEventListener('touchend', onEnd);
     },
   };
 };
