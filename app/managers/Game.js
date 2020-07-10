@@ -2,6 +2,7 @@ import { isName } from '../../validation';
 import route from '../common/route';
 import key from '../../battleship/key';
 import { map as ships } from '../../battleship/ships';
+import signal from 'signal-js';
 import {
   HIT,
   STATE_HOME,
@@ -38,18 +39,20 @@ const Game = ({
     
     // update turn
     store.set(['game', 'turn'], newTurnId);
-    
-    // we attacked
-    if (store.get('playerId') === attackingPlayerId) {
-      audio.play(result === HIT ? SOUND_HIT : SOUND_MISS);
-      store.set(['game', 'screen', key(coords)], result);
-      result === HIT && store.set(['game', 'hits'], store.get(['game', 'hits']) + 1);
-      return;
-    }
-
-    // we're being attacked
-    store.set(['game', 'map', key(coords)], result);
-    audio.play(result === HIT ? SOUND_HIT : SOUND_MISS);
+    // is this a hit?
+    const isHit = result === HIT;
+    // play the appropriate sound
+    audio.play(isHit ? SOUND_HIT : SOUND_MISS);
+    // show the effect
+    signal.emit('effect:attack', isHit, coords);
+    // are we the attacker...
+    const didWeAttack = store.get('playerId') === attackingPlayerId;
+    // because affects were we save the action
+    const saveToLocation = didWeAttack ? 'screen' : 'map';
+    // save the result
+    store.set(['game', saveToLocation, key(coords)], result);
+    // record the hit
+    didWeAttack && isHit && store.set(['game', 'hits'], store.get(['game', 'hits']) + 1);
   });
 
   socket.on('game:state', ({ id, state }) => {

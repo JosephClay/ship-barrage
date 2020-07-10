@@ -1,28 +1,27 @@
 /* eslint-disable id-length */
 import random from 'utils/random';
-import randomInt from './randomInt';
-import sample from './sample';
+import randomInt from 'utils/randomInt';
+import sample from 'utils/sample';
 
-// TODO: kill colors of black and white impl
+// NOTE: duplications are to weight the sample
 const colors = [
-  'rgba(231, 76, 60, 1)', // red
-  'rgba(241, 196, 15, 1)', // yellow
-  'rgba(231, 76, 60, 1)', // red
-  'rgba(241, 196, 15, 1)', // yellow
-  'rgba(231, 76, 60, 1)' // red
+  [255, 255, 255], // white
+  [252, 251, 159], // pale yellow
+  [252, 251, 159], // pale yellow
+  [237, 173, 69], // light orange
+  [237, 173, 69], // light orange
+  [110, 20, 12], // deep red
+  [110, 20, 12], // deep red
+  [110, 20, 12], // deep red
 ];
-
-const randomColor = () => sample(colors);
-
-// Particle
 
 export default class Particle {
   constructor(system, x, y) {
     this.system = system;
-    this.universe = this.system.world.universe;
+    this.world = this.system.world;
     this.x = x;
     this.y = y;
-    this.color = randomColor();
+    this.color = sample(colors);
     this.life = 1;
     this.aging = random(0.99, 0.999); // 0.99, 0.999 || 0.999, 0.9999
     
@@ -44,11 +43,11 @@ export default class Particle {
       || this.life === 0
       // out of bounds check
       || this.x + this.r < 0
-      || this.x - this.r > this.universe.width
+      || this.x - this.r > this.world.width
       || this.y + this.r < 0
-      || this.y - this.r > this.universe.height
+      || this.y - this.r > this.world.height
     ) {
-      return this.system.removeObject(this);
+      return this.system.remove(this);
     }
     
     this.r *= this.life;
@@ -59,16 +58,15 @@ export default class Particle {
   render(ctx) {
     // main circle
     
-    ctx.fillStyle = this.color;
+    ctx.save();
+    ctx.fillStyle = `rgb(${this.color.join(',')})`;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.closePath();
+    ctx.restore();
 
-    // TODO: kill this
-    const r = this.color.match(/([0-9]+)/g)[0];
-    const g = this.color.match(/([0-9]+)/g)[1];
-    const b = this.color.match(/([0-9]+)/g)[2];
+    const [r, g, b] = this.color;
 
     // Gradient
     
@@ -80,28 +78,27 @@ export default class Particle {
     gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.3)`);
     gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
+    ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.fillStyle = gradient;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r * spread, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.closePath();
-    ctx.globalCompositeOperation = 'source-over';
+    ctx.restore();
     
     // Aberration
     
     const offset = this.r * 0.5;
     const color = `rgba(${g}, ${b}, ${r}, 0.3)`;
     
-    // ctx.save();
+    ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.arc(this.x + offset, this.y + offset, this.r, 0, 2 * Math.PI, false);
     ctx.fill();
     ctx.closePath();
-    // TODO: save and restore and remove source-over
-    ctx.globalCompositeOperation = 'source-over';
-    // ctx.restore();
+    ctx.restore();
   }
 };

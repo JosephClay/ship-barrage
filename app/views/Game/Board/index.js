@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import useBoardPlacement from '../../hooks/useBoardPlacement';
 import Container from './Container';
 import Cursor from './Cursor';
-import Attacks from './Attacks';
 import Border from './Border';
 import Pips from './Pips';
 import Tiles from './Tiles';
@@ -27,7 +26,6 @@ export default function Board({
   return (
     <Container size={ size } x={ x } y={ y }>
       { cursor && <Cursor cellSize={ cellSize } getPosition={ getPosition } /> }
-      <Attacks attacks={ attacks } cellSize={ cellSize } getPosition={ getPosition } />
       <Tiles
         size={ size }
         cellSize={ cellSize }

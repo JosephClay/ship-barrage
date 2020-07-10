@@ -29,7 +29,6 @@ const calculateMinimizedMin = (size, x, y) => ({
   y: y + size + 15,
 });
 
-
 export default function useBoardPlacement({ stats, minimized } = {}) {
   const { width } = useScreen();
   const { size, top: y, left: x } = useBoard();

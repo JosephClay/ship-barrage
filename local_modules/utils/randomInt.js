@@ -1,3 +1,3 @@
-import random from 'utils/random';
+import random from './random';
 
 export default (min, max) => ~~random(min, max);

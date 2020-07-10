@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Info from './Info';
 import Desktop from './Desktop';
+import Effects from './Effects';
 import Summary from './Summary';
 import Drawer from './Drawer';
 import Preview from './Preview';
@@ -32,13 +33,16 @@ export default function Game() {
       { isActive && <TargetingCursor /> }
       <Header />
       { !isEnd && (
-        <Desktop hideCursor={ isActive }>
-          { isGame && <Info /> }
-          <Grid attack={ isActive }>
-            <Ornaments />
-          </Grid>
-          { isSetup && <Drawer disabled={ isPlayerReady } /> }
-        </Desktop>
+        <>
+          <Effects />
+          <Desktop hideCursor={ isActive }>
+            { isGame && <Info /> }
+            <Grid attack={ isActive }>
+              <Ornaments />
+            </Grid>
+            { isSetup && <Drawer disabled={ isPlayerReady } /> }
+          </Desktop>
+        </>
       ) }
       { isActive && <Stats /> }
       { isActive && <Preview /> }
