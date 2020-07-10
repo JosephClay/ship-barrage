@@ -1,6 +1,6 @@
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('v1').then(cache => {
+    caches.open('v2').then(cache => {
       return cache.addAll([
         '/assets/audio/',
         '/assets/audio/background.mp3',
@@ -30,7 +30,7 @@ self.addEventListener('fetch', event => {
           console.log('WORKER: fetch response from network.', event.request.url);
 
           caches
-            .open(`v1fetch`)
+            .open(`v2fetch`)
             .then(cache => cache.put(event.request, cacheCopy));
 
           return response;
