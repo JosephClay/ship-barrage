@@ -14,7 +14,7 @@ export default function Drawer({ disabled }) {
       carrier,
     },
   } = useGame();
-
+  
   return (
     <>
       <Piece

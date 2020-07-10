@@ -1,6 +1,5 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore } from '@immutabl3/store/react';
 
 export default function useDrag() {
-  const { drag } = useBranch({ drag: ['drag'] });
-  return drag;
+  return useStore(['drag']);
 };

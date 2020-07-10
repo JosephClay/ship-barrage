@@ -1,6 +1,7 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore as useStoreStore } from '@immutabl3/store/react';
+
+// TODO: kill this useStore
 
 export default function useStore(selector) {
-  const { value } = useBranch({ value: selector });
-  return value;
+  return useStoreStore(selector);
 };

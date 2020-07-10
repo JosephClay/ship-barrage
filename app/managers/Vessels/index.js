@@ -60,7 +60,7 @@ const Vessels = function({
     
     const dist = distance(moveX, moveY, clientX, clientY);
     const currentType = drag.get('type');
-
+    
     drag.merge({
       x,
       y,

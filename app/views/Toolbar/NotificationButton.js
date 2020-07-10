@@ -3,7 +3,7 @@ import signal from 'signal-js';
 import Bell from '../icons/Bell';
 import IconButton from '../components/IconButton';
 import hasNotifications from '../../compatibility/hasNotifications';
-import useStore from '../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 const onToggle = () => signal.emit('notifications:toggle');
 

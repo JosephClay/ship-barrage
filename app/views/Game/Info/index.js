@@ -4,7 +4,7 @@ import ReadyButton from './ReadyButton';
 import useTypewriter from '../../hooks/useTypewriter';
 import useGameState from '../../hooks/useGameState';
 import useGame from '../../hooks/useGame';
-import useStore from '../../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 const isPlaced = ({ placed }) => placed;
 

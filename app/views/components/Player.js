@@ -1,6 +1,6 @@
 import React from 'react';
 import player from './player.style';
-import useStore from '../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 export default function Player() {
   const name = useStore(['playerName']);

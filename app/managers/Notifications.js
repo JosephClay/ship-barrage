@@ -30,7 +30,7 @@ const Notifications = function(store, visibility) {
     requestPermission();
   };
 
-  store.on('update', () => {
+  store.watch(() => {
     const active = store.get();
     // toggling on
     if (active) requestPermission();

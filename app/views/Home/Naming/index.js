@@ -3,7 +3,7 @@ import signal from 'signal-js';
 import useKeyPress from '../../hooks/useKeyPress';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import useStore from '../../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 import { isName } from '../../../../validation';
 import { PAT_IS_NAME } from 'settings';
 

@@ -35,5 +35,5 @@ export default function Stats(mapSelector, shipsSelector, statsSelector) {
   };
 
   calculate();
-  mapSelector.on('update', calculate);
+  mapSelector.watch(calculate);
 };

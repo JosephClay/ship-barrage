@@ -11,7 +11,7 @@ import ActionBar from './ActionBar';
 import Button from '../components/Button';
 import Background from './Background';
 import { MAX_SESSIONS } from 'settings';
-import useStore from '../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 import useViewState from '../hooks/useViewState';
 
 const onPlay = () => signal.emit('play');

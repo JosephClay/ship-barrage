@@ -1,4 +1,4 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore } from '@immutabl3/store/react';
 import {
   STATE_HOME,
   STATE_NAMING,
@@ -7,11 +7,12 @@ import {
 } from 'settings';
 
 export default function useViewState() {
+  // TODO: break into 3
   const {
     loading,
     state,
     initialized,
-  } = useBranch({ 
+  } = useStore({
     loading: ['loading'],
     state: ['state'],
     initialized: ['initialized'],

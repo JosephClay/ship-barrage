@@ -3,7 +3,7 @@ import signal from 'signal-js';
 import Name from '../components/Name';
 import { isName } from '../../../validation';
 import welcome from './welcome.style';
-import useStore from '../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 const onNameChange = () => signal.emit('name:change');
 

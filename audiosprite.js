@@ -1,3 +1,5 @@
+// formats tags from audacity to a format howler can use
+
 import fs from 'fs';
 import path from 'path';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import useBoardPlacement from '../../hooks/useBoardPlacement';
 import styles, { row, header, cell } from './stats.style';
-import useStore from '../../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 const humanNames = new Map([
   ['battleship', 'Battleship'],

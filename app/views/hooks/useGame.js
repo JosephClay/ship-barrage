@@ -1,6 +1,5 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore } from '@immutabl3/store/react';
 
 export default function useGame() {
-  const { game } = useBranch({ game: ['game'] });
-  return game;
+  return useStore(['game']);
 };

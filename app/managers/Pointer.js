@@ -52,7 +52,7 @@ const Pointer = function(pointer, screen, board) {
     });
   };
 
-  screen.on('update', () => calc(pointer.get()));
+  screen.watch(() => calc(pointer.get()));
   document.addEventListener('pointermove', calc);
 
   return Object.assign(emitter, {

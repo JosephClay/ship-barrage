@@ -42,11 +42,12 @@ const Name = function(state, store, socket) {
         state.set(STATE_NAMING);
 
         const onNameChange = () => {
-          store.off('update', onNameChange);
+          // eslint-disable-next-line no-use-before-define
+          disposer();
           resolve();
         };
 
-        store.on('update', onNameChange);        
+        const disposer = store.watch(onNameChange);        
       });
     },
   };

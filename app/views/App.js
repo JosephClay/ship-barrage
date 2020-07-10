@@ -1,6 +1,6 @@
 import React from 'react';
 import { Global } from '@emotion/core';
-import useRoot from 'baobab-react/useRoot';
+import { useContext } from '@immutabl3/store/react';
 import View from './View';
 import Toolbar from './Toolbar';
 import Messages from './Messages';
@@ -10,10 +10,10 @@ import GitHub from './common/GitHub';
 import Credits from './common/Credits';
 
 export default function App({ store }) {
-  const Root = useRoot(store);
+  const Context = useContext(store);
 
   return (
-    <Root>
+    <Context>
       <Global styles={ app } />
       <Tutorial />
       <GitHub />
@@ -21,6 +21,6 @@ export default function App({ store }) {
       <Toolbar />
       <Messages />
       <View />
-    </Root>
+    </Context>
   );
 };

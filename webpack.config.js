@@ -67,10 +67,12 @@ module.exports = {
       '.js',
       '.jsx',
     ],
-    alias: {
-      react: 'preact/compat',
-      'react-dom': 'preact/compat',
-    },
+    ...(isProd && {
+      alias: {
+        react: 'preact/compat',
+        'react-dom': 'preact/compat',
+      }
+    }),
   },
   optimization: {
     usedExports: true,

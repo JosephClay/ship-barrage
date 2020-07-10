@@ -2,7 +2,7 @@ import React from 'react';
 import sortBy from 'utils/sortBy';
 import Session from './Session';
 import style from './sessions.style';
-import useStore from '../../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 import { MAX_SESSIONS } from 'settings';
 
 const sortByTime = sortBy('time');

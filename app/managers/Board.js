@@ -23,7 +23,7 @@ const measure = ({
 };
 
 const Board = function(screen, board) {
-  screen.on('update', () => {
+  screen.watch(() => {
     board.set(measure(screen.get()));
   });
 };

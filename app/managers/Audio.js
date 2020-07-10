@@ -42,7 +42,7 @@ const Audio = function(store) {
   
   Howler.mute(!isOn);
 
-  store.on('update', () => {
+  store.watch(() => {
     isOn = store.get();
     storage.set(isOn);
     Howler.mute(!isOn);

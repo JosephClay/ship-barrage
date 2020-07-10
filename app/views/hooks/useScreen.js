@@ -1,6 +1,5 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore } from '@immutabl3/store/react';
 
 export default function useScreen() {
-  const { screen } = useBranch({ screen: ['screen'] });
-  return screen;
+  return useStore(['screen']);
 };

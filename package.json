@@ -21,8 +21,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "baobab": "^2.6.0",
-    "baobab-react": "file:./local_modules/baobab-react",
+    "@immutabl3/store": "0.0.4",
     "comlink": "^4.3.0",
     "compression": "^1.7.4",
     "copy-to-clipboard": "^3.3.1",

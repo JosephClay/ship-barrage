@@ -1,4 +1,4 @@
-import Baobab from 'baobab';
+import Store from '@immutabl3/store';
 import Game from './managers/Game';
 import Name from './managers/Name';
 import Pointer from './managers/Pointer';
@@ -10,7 +10,7 @@ import Notifications from './managers/Notifications';
 import Screen from './managers/Screen';
 import { STATE_HOME } from 'settings';
 
-export default () => new Baobab({
+export default () => Store({
   initialized: false,
   loading: true,
   state: STATE_HOME,
@@ -27,10 +27,4 @@ export default () => new Baobab({
   notifications: Notifications.get(),
   sound: Audio.get(),
   tutorial: false,
-}, {
-  immutable: process.env.NODE_ENV !== 'production',
-  lazyMonkeys: false,
-  monkeyBusiness: false,
-  persistent: false,
-  pure: true,
 });

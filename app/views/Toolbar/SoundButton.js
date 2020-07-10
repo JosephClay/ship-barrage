@@ -2,7 +2,7 @@ import React from 'react';
 import signal from 'signal-js';
 import Sound from '../icons/Sound';
 import IconButton from '../components/IconButton';
-import useStore from '../hooks/useStore';
+import { useStore } from '@immutabl3/store/react';
 
 const onToggle = () => signal.emit('sound:toggle');
 

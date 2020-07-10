@@ -1,4 +1,4 @@
-import useBranch from 'baobab-react/useBranch';
+import { useStore } from '@immutabl3/store/react';
 import {
   STATE_SETUP,
   STATE_ACTIVE,
@@ -8,11 +8,12 @@ import {
 } from 'settings';
 
 export default function Game() {
+  // TODO: breakup
   const {
     gameState,
     playerState,
     hits,
-  } = useBranch({
+  } = useStore({
     gameState: ['game', 'state'],
     playerState: ['game', 'playerState'],
     hits: ['game', 'hits'],
