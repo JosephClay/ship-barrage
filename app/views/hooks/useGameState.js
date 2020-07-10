@@ -8,7 +8,6 @@ import {
 } from 'settings';
 
 export default function Game() {
-  // TODO: breakup
   const {
     gameState,
     playerState,

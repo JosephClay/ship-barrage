@@ -7,7 +7,6 @@ import {
 } from 'settings';
 
 export default function useViewState() {
-  // TODO: break into 3
   const {
     loading,
     state,
