@@ -2,12 +2,13 @@ require('dotenv').config();
 
 const path = require('path');
 const webpack = require('webpack');
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = process.env.NODE_ENV === 'production';
+const analyze = process.argv.includes('--analyze');
+const isDev = !analyze && process.env.NODE_ENV === 'development';
+const isProd = analyze || process.env.NODE_ENV === 'production';
 const mode = isDev ? 'development' : 'production';
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: {
@@ -60,7 +61,7 @@ module.exports = {
         NODE_ENV: mode,
       })
     ),
-    // new BundleAnalyzerPlugin(),
+    analyze && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
   resolve: {
     extensions: [

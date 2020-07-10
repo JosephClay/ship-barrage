@@ -16,6 +16,7 @@
     "debug:test": "node -r esm --inspect-brk=1234 tests",
     "test": "node -r esm tests | tap-spec",
     "watch": "webpack --watch",
+    "analyze": "webpack --analyze",
     "audio": "node -r esm audiosprite.js",
     "build": "webpack --production"
   },
