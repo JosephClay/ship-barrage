@@ -45,7 +45,7 @@
     "settings": "file:./local_modules/settings",
     "signal-js": "^2.3.2",
     "socket-request": "file:./local_modules/socket-request",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "socket.io-client": "^2.3.0",
     "socket.io-msgpack-parser": "^2.2.0",
     "stats.js": "^0.17.0",
