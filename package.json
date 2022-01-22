@@ -37,7 +37,7 @@
     "html-minifier": "^4.0.0",
     "mongodb-memory-server": "^6.6.1",
     "mongoose": "^5.9.18",
-    "nanoid": "^3.1.4",
+    "nanoid": "^3.1.31",
     "perlin-contours": "file:./local_modules/perlin-contours",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
